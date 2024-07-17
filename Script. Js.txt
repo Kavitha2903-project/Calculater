@@ -1,0 +1,38 @@
+let displayValue = '';
+
+function appendNumber(num) {
+displayValue += num;
+updateDisplay();
+}
+
+function appendDecimal() {
+if (!displayValue.includes('.')) {
+displayValue += '.';
+updateDisplay();
+}
+}
+
+function clearDisplay() {
+displayValue = '';
+updateDisplay();
+}
+
+function operation(operator) {
+displayValue += operator;
+updateDisplay();
+}
+
+function calculate() {
+try {
+const result = eval(displayValue);
+displayValue = result.toString();
+updateDisplay();
+} catch (error) {
+displayValue = 'Error';
+updateDisplay();
+}
+}
+
+function updateDisplay() {
+document.getElementById('display').value = displayValue;
+}
